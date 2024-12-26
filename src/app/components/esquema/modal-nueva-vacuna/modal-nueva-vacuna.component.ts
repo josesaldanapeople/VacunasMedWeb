@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { MatList, MatListItem } from '@angular/material/list';
 import { MatCard } from '@angular/material/card';
+import { Fabricante } from '../../../modelos/Fabricante';
 
 @Component({
   selector: 'app-modal-nueva-vacuna',
@@ -37,6 +38,11 @@ export class ModalNuevaVacunaComponent {
   lote:string='';
   caducidad:string='';
   siguiente:string='';
+  verBuscadorFabricante:boolean=false;
+  searchFabricante:string=''
+  fabricantes:Fabricante[]=[{
+    nombre: 'Biofarma'
+  },{nombre: 'Aztra-Zeneca'},{nombre: 'Novartis'},{nombre: 'Pfizer'}]
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Vacuna,private dialogRef: MatDialogRef<ModalNuevaVacunaComponent>) {
@@ -114,6 +120,11 @@ export class ModalNuevaVacunaComponent {
     horas = horas ? horas : 12;  // Si es 0 (medianoche), lo convierte a 12
     
     return `${horas}:${minutos} ${ampm}`;
+  }
+
+  buscarFabricante()
+  {
+    this.verBuscadorFabricante=true;
   }
 
 }

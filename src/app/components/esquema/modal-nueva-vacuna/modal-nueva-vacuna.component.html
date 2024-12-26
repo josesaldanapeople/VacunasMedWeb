@@ -1,9 +1,10 @@
 
 <mat-dialog-content>
-    <form #vacunaForm="ngForm" (ngSubmit)="registrar(vacunaForm)">
-    <div class="container">
+    
+    <div class="container" *ngIf="!verBuscadorFabricante ">
+      <form #vacunaForm="ngForm" (ngSubmit)="registrar(vacunaForm)">
 
-
+      
         <div>
             <p class="titulo">Datos de la vacuna</p>
         </div>
@@ -52,11 +53,11 @@
                 <mat-label>Fabricante</mat-label>
                 <input name="fabricante" style="width: 50%;" matInput placeholder="Fabricante" [(ngModel)]="fabricante"  required/>
                 <button
-                *ngIf="data.nombre ==''"
+               
                 mat-icon-button
                 matSuffix
                 aria-label="Clear"
-                (click)="buscarVacuna()"
+                (click)="buscarFabricante()"
               >
               <img 
               class="icono_boton"
@@ -99,8 +100,17 @@
             <button type="button" mat-button (click)="cerrarModal()" class="cancelar-button">Cancelar</button>
             <button type="submit" [disabled]="vacunaForm.invalid"  mat-button class="aceptar-button" >Aceptar</button>
         </div>
-        </div>
-    </form>
+      </form>
+
+    </div>
+    <div *ngIf="verBuscadorFabricante">
+      <mat-form-field appearance="fill" style="width: 300px;">
+        <mat-label><mat-icon>search</mat-icon> Buscar vacuna</mat-label>
+        <input matInput placeholder="Buscar vacuna" [(ngModel)]="searchFabricante">
+        
+      </mat-form-field>
+    </div>
+    
     
 </mat-dialog-content>
 
