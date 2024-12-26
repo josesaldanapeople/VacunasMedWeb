@@ -1,0 +1,87 @@
+<div class="vacunas-container">
+    <!-- Sección de título e ícono -->
+    <div class="title-section">
+        <img style="margin: 10px;" src="assets/icons/aplicada.svg"   alt="paciente">
+      <span class="title">Siguientes vacunas y refuerzos</span>
+    </div>
+  
+    <!-- Botón de nueva vacuna -->
+    <button mat-raised-button  class="add-button">
+      Nueva vacuna
+      <img style="margin: 10px;" src="assets/icons/add.svg" (click)="openModal()"   alt="agregar vacuna">
+    </button>
+
+
+  </div>
+  <div>
+    <mat-card appearance="outlined" *ngFor="let item of vacunas_siguientes let i = index" style="margin-bottom: 10px;">
+        <mat-card-content>
+            <table style="width: 100%;">
+            <tr>
+             <td style="width: 70%;"><span class="titulo">{{item.nombre}}</span></td>
+             <td><span *ngIf="!item.aplicada" class="texto_noaplica">No aplicada</span>
+              <span *ngIf="item.aplicada" class="texto_aplica">{{item.fecha}}</span>
+            </td>
+            </tr>
+            <tr>
+                <td style="width: 70%;"><span class="subtexto">{{item.descripcion}}</span></td>
+                <td><span *ngIf="!item.aplicada" class="subtexto">{{item.causa_perdida}}</span>
+                    <span *ngIf="item.aplicada" class="subtexto">{{item.hora}}</span>
+                </td>
+               </tr>
+        </table>
+        <mat-accordion class="example-headers-align" *ngIf="item.aplicada">
+            <mat-expansion-panel [expanded]="step() === generateUniqueNumber(i+1,j)" (opened)="setStep(generateUniqueNumber(i+1,j))" (closed)="setStep(-1)" hideToggle *ngFor="let item2 of item.dosis;let j = index" >
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="width: 70%;"><img src="assets/icons/jeringa.svg" /> Datos de la vacuna</mat-panel-title>
+                    <mat-panel-description style="justify-content: right !important;">
+                      {{item2.numDosis}}
+                     
+                     <!--  <img 
+                  class="icono_boton"
+                  src="assets/icons/chevron-up-circle.svg"
+                /> -->
+               <img 
+                  class="icono_boton"
+                  src="assets/icons/chevron-down-circle.svg"
+                /> 
+             
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <table style="width: 100%;">
+                    <tr>
+                        <td><span class="subtexto">Vía de administración</span></td>
+                        <td><span class="subtexto">Fecha de caducidad</span></td>
+                        <td><span class="subtexto">Dosis administrada</span></td>
+                        <td><span class="subtexto">Fabricante</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="titulo">{{item2.administracion}}</span></td>
+                        <td><span class="titulo">{{item2.fecha_caducidad}}</span></td>
+                        <td><span class="titulo">{{item2.dosis_admin}}</span></td>
+                        <td><span class="titulo">{{item2.fabricante}}</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="subtexto">Lote</span></td>
+                        <td><span class="subtexto">Siguiente aplicación</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><span class="titulo">{{item2.lote}}</span></td>
+                        <td><span class="titulo">{{item2.siguiente}}</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                  </table>
+
+            </mat-expansion-panel>
+        </mat-accordion>   
+        <button mat-raised-button color="primary" (click)="openModal(item)" class="action-button">
+            Aplicar siguiente dosis →
+          </button>
+    </mat-card-content>
+      </mat-card>
+      
+  </div>

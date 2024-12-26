@@ -1,0 +1,127 @@
+@import '../../../../styles.scss';
+
+/* MODAL */
+
+.modal-content {
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  border-radius: 8px;
+  //padding: 20px;
+
+
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: white;
+  color: $vino;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.close-btn {
+  background: #f5f3f3;
+
+  border: none;
+  font-size: 15px;
+  color: rgb(202, 200, 200);
+  cursor: pointer;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+.modal-body p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.effects-icons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.effect {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.effect img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.warning {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* .titulo-molestias{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+} */
+
+.titulo-molestias{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+}
+
+.consulta{
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+.recomendacion{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.recomendacion-icon{
+  width: 40px;
+  height: 40px;
+}
+
+.recomendacion-texto{
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+.warning a {
+  color: #007bff;
+  //text-decoration: none;
+}
+
+.modal-footer {
+  text-align: right;
+  background-color: #f5f3f3;
+}
+
+.icono{
+  width: 45px;
+  height: 45px;
+  background-color: #f5f3f3;
+  border-radius: 30px;
+  text-align: center;
+}

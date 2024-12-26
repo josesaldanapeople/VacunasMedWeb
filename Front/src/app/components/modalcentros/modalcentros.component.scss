@@ -1,0 +1,51 @@
+.centro{
+    font-size: 1rem;
+}
+.cardMapa{
+    background-color: #971c4e;
+    border-radius:10px
+}
+.texto1{
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.texto2{
+    color: white;
+    font-size: 1.1rem;
+}
+
+.cancelar-button {
+    border: 1px solid #bc8a3c; /* Color del borde */
+    color: #bc8a3c !important; /* Color del texto */
+  }
+  
+  .aceptar-button {
+    background-color: #971c4e; /* Color de fondo */
+    color: white !important; /* Color del texto */
+  }
+  
+  .cancelar-button:hover {
+    background-color: transparent;
+  }
+  
+  .aceptar-button:hover {
+    background-color: #971c4e; /* Color de fondo en hover */
+  }
+
+  .full-width {
+    width: 100%;
+  }
+  
+  mat-form-field {
+    margin: 8px 0;
+  }
+  
+  mat-icon {
+    color: #a87e0c; /* Color dorado para el icono */
+  }
+  .form-row {
+    display: flex;
+    gap: 16px;
+  }

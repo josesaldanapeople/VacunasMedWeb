@@ -1,0 +1,45 @@
+.iframe-container {
+  display: flex;
+  flex: 1;
+  justify-content: center; /* Optional: Align the iframe horizontally */
+  align-items: center;    /* Optional: Align the iframe vertically */
+  height: 1000px;
+  width: 100%;
+}
+
+/* iFrame styles */
+iframe {
+  flex: 1; /* Ensures the iframe expands to fill the parent */
+  height: 40vw; /* Full height */
+  border: none; /* Removes iframe border */
+  height: 800px;
+}
+
+
+@media  (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+// Estilos para iPad en orientación vertical
+
+
+  .iframe-container{
+    height: 1000px;
+  }
+}
+
+@media  (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  // Estilos para iPad en orientación horizontal
+
+  .iframe-container{
+    height: 1000px;
+  }
+}
+
+// Detectar específicamente dispositivos iPad con soporte para media queries modernas
+@supports (-webkit-touch-callout: none) {
+  @media (min-device-width: 768px) and (max-device-width: 1024px) {
+      // Estilos adicionales solo para iPads
+      .ipad-specific {
+          font-size: 1.5rem;
+          color: darkblue !important;
+      }
+  }
+}

@@ -1,0 +1,197 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <div class="header-left">
+    <span class="app-title">Cartilla de vacunación digital</span>
+  </div>
+
+  <div class="header-right">
+    <span class="user-info">
+      José Trejo Pérez de las Casas
+      <small>Hola, Bienvenido Dr.</small>
+    </span>
+    <!-- <mat-icon class="user-avatar">account_circle</mat-icon> -->
+     <div style="background-color: white; border-radius: 5px;"><img  src="assets/icons/doctor.svg" /></div>
+
+    <img
+      class="arrrow_down"
+      src="assets/icons/arrrow_down.svg"
+      (click)="toggleProfile()"
+    />
+    <div class="divider"></div>
+
+    <!--  <button mat-icon-button > -->
+    <mat-icon class="notification-button"
+    (click)="toggleNotificaciones()"
+    >notifications</mat-icon>
+    <!--  </button> -->
+   
+    <div class="divider"></div>
+    <span class="logout">
+      Cerrar sesión &nbsp;
+      <img src="assets/icons/logout.svg" />
+    </span>
+  </div>
+</mat-toolbar>
+
+<!-- <div class="profile-container">
+
+  <div class="profile-panel" *ngIf="isProfileVisible">
+    <h2>Perfil</h2>
+    <div class="profile-header">
+      <img src="assets/avatar.png" alt="Avatar" class="avatar-large" />
+      <div>
+        <p class="name">José Trejo Pérez de las Casas</p>
+        <p class="info">TEP780815HMCRRS05</p>
+        <p class="info">Masculino</p>
+        <p class="info">15/08/1978</p>
+        <p class="info">México</p>
+      </div>
+    </div>
+    <hr />
+    <div class="profile-section">
+      <h3>Contacto</h3>
+      <p><span class="icon">💬</span> Chatea con nosotros</p>
+      <p><span class="icon">📞</span> 800 1234 56789</p>
+    </div>
+    <hr />
+    <div class="profile-section">
+      <h3>Tratamiento de datos</h3>
+      <p>Estoy de acuerdo que mis datos sean tratados conforme a...</p>
+      <label>
+        Permitir tratar datos
+        <input type="checkbox" />
+      </label>
+    </div>
+    <a href="#">Aviso de privacidad</a>
+  </div>
+</div>
+ -->
+
+<div *ngIf="isProfileVisible">
+
+  <div class="profile-panel">
+    <h2>Perfil</h2>
+
+    <div class="datos-user">
+      <img class="icon-user" src="assets/icons/doctor2.svg" />
+      <div class="datos-columna">
+        <div class="datos-perfil">
+          <div class="datos-izquierda">
+            <h4 class="valor">TEPJ780815HMCRRS05</h4>
+            <p class="titulo">Curp</p>
+          </div>
+          <div class="datos-derecha">
+            <h4 class="valor">Masculino</h4>
+            <p class="titulo">Género</p>
+          </div>
+        </div>
+        <div class="datos-perfil">
+          <div class="datos-izquierda">
+            <h4 class="valor">15/08/1978</h4>
+            <p class="titulo">Fecha de nacimiento</p>
+          </div>
+          <div class="datos-derecha">
+            <h4 class="valor">México</h4>
+            <p class="titulo">Estado</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="language-selector">
+      <!-- <label for="language">Lenguaje</label> -->
+      <select id="language" [(ngModel)]="selectedLanguage">
+        <option value="es">Lenguaje</option>
+        <option value="esp">Español (Predeterminado)</option>
+        <option value="ot">Otomí</option>
+        <option value="na">Náhuatl</option>
+        <option value="za">Zapoteco</option>
+      </select>
+    </div>
+
+    <div class="contact">
+      <p
+        style="
+          border-bottom: 1px rgb(223, 222, 222) solid;
+          color: rgb(223, 222, 222);
+          padding-bottom: 5px;
+        "
+      >
+        Contacto
+      </p>
+      <ul>
+        <li>
+          <img style="margin-right: 5px" src="assets/icons/whatsapp.svg" />
+          Chatea con nosotros
+        </li>
+        <li>
+          <img style="margin-right: 5px" src="assets/icons/phone.svg" /> 800
+          1234 56789
+        </li>
+        <li>
+          <img style="margin-right: 5px" src="assets/icons/universal.svg" />
+          Esquema de vacunación
+        </li>
+      </ul>
+    </div>
+
+    <br />
+    <div class="legal">
+      <p
+        style="
+          border-bottom: 1px rgb(223, 222, 222) solid;
+          color: rgb(223, 222, 222);
+          padding-bottom: 5px;
+        "
+      >
+        Legales
+      </p>
+      <h4 style="font-weight: 400">Tratamiento de datos</h4>
+      <p>
+        Estoy de acuerdo que mis datos ingresados sean tratados conforme a la
+        política de transparencia y
+        <a href="#">tratamiento de datos de la Secretaría de Salud</a>.
+      </p>
+      <div class="tratar-datos">
+        <p>Permitir tratar datos</p>
+        <label class="toggle-switch">
+          <input type="checkbox" [(ngModel)]="allowDataProcessing" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div style="text-align: center"><a href="#">Aviso de privacidad</a>.</div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isNotificacionesVisible">
+  <div class="Notifacion-panel">
+    <h2>Notificaciones</h2>
+
+    <div class="notificaciones">
+
+
+<!--         <div class="notificacion leida">
+          <h3>2a Dosis Neumococo</h3>
+          <p>Lorem ipsum dolor sit amet consectetur. Aliquet ullamcorper...</p>
+          <span class="fecha">10/09/2023</span>
+        </div>
+        <div class="notificacion rechazada">
+          <h3>UMF 23 CIUDAD GUSTAVO DÍAZ ORDAZ</h3>
+          <p>Rechazo del trámite [Tipo de documento]</p>
+          <span class="fecha">10/09/2023</span>
+        </div> -->
+
+        <div class="notificacion" *ngFor="let item of listaNotificaciones">
+          <div style="display: flex; align-items: center; gap: 5px;">
+            <img *ngIf="item.visto==false" style="width: 15px; height: 15px;" src="assets/icons/dot_verde2.svg">
+            <img *ngIf="item.visto" style="width: 15px; height: 15px;" src="assets/icons/dot_gris.svg">
+            <p class="valor">{{item.titulo}}</p>
+          </div>
+          <p>{{item.contenido}}</p>
+          <span class="fecha">{{item.fecha}}</span>
+        </div>
+      
+
+    </div>
+  </div>
+</div>

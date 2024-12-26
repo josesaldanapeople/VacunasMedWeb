@@ -1,0 +1,90 @@
+@import '../../../styles.scss';
+.form-container {
+    margin: 20px;
+    max-width: 100%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    color: #6c757d; /* Color gris claro */
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .curp-container {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Espacio entre el input y el botón */
+  }
+  
+  .curp-field {
+    flex: 1; /* El campo ocupa todo el espacio disponible */
+  }
+  
+  .search-button {
+    white-space: nowrap; /* Evita que el texto del botón se divida */
+    text-transform: none; /* Mantiene el texto en el formato definido */
+  }
+
+  .buscar-button {
+    border: 1px solid #971c4e; /* Color del borde */
+    color: #971c4e !important; /* Color del texto */
+    background-color: white !important;
+  }
+
+  .buscar-button:hover {
+    background-color: #971c4e !important; /* Color de fondo en hover */
+    color: white !important; /* Color del texto */
+  }
+  .div_paciente{
+    background-color: #F1F3F3;;
+    border-radius: 10px;
+  }
+  .contenido{
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-left: 10px;
+  }
+  
+  .titulo{
+    
+    font-size: 1rem;
+    margin-left: 10px;
+  }
+  .custom-tab-group .mat-tab-body-wrapper {
+    overflow: scroll; /* Permitir el scroll */
+  }
+  
+  .custom-tab-group .mat-tab-body-wrapper::-webkit-scrollbar {
+    display: none !important; /* Oculta la barra de scroll */
+  }
+  
+  .custom-tab-group .mat-tab-body-wrapper {
+    scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
+  }
+  
+  
+  
+  
+  .tab-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
+  .tab-icon-selected{
+    background-color: $vino;
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+  
+  }

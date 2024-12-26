@@ -1,0 +1,48 @@
+mat-form-field {
+    margin: 8px 0;
+  }
+  
+  mat-icon {
+    color: #a87e0c; /* Color dorado para el icono */
+  }
+  .form-row {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+  }
+  .titulo{
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .container{
+    margin-top: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .div_botones{
+    display: flex;
+    justify-content: right;
+  }
+.limpiar-button{
+    color: #971c4e !important; /* Color del texto */
+    margin-right: 7px; 
+}
+  .cancelar-button {
+    border: 1px solid #bc8a3c; /* Color del borde */
+    color: #bc8a3c !important; /* Color del texto */
+    margin-right: 7px;
+  }
+  
+  .aceptar-button {
+    background-color: #971c4e; /* Color de fondo */
+    color: white !important; /* Color del texto */
+  }
+  
+  .cancelar-button:hover {
+    background-color: #bc8a3c;
+    color: white !important;
+  }
+  
+  .aceptar-button:hover {
+    background-color: #971c4e; /* Color de fondo en hover */
+  }

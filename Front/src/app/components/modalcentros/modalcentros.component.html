@@ -1,0 +1,124 @@
+<h2 mat-dialog-title>Agregar centro de trabajo</h2>
+<form #centroForm="ngForm" (ngSubmit)="registrar(centroForm)">
+<mat-dialog-content>
+    <div style="width: 450px;">
+         <mat-form-field  class="full-width" style="width: 100%;">
+            
+            <input style="width: 100%;" matInput placeholder="Busca una dirección" [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}" (input)="filterVacunas()" />
+            <button
+            *ngIf="direccion"
+            mat-icon-button
+            matSuffix
+            aria-label="Clear"
+            (click)="clearSearch()"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+            
+          </mat-form-field> 
+
+         <!--  <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Busca una dirección</mat-label>
+            <input matInput [(ngModel)]="direccion" />
+            <button
+              *ngIf="direccion"
+              mat-icon-button
+              matSuffix
+              aria-label="Clear"
+              (click)="clearSearch()"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field> -->
+       </div>
+       <br>
+       <div>
+        <table>
+            <tr>
+                <td style="vertical-align: middle;  text-align: center;"><img src="assets/icons/ubicacion.svg"   alt="Ubicación"></td>
+                <td style="vertical-align: middle;  text-align: center;"><p>Ubicación actual</p></td>
+            </tr>
+        </table>
+        
+        
+       </div>
+       <br>
+       <mat-list *ngIf="!verMapa">
+        <mat-list-item (click)="seleccionCentro(item.nombre)" *ngFor="let item of filteredCentros"><img src="assets/icons/pin.svg"   alt="Ubicación"><span class="centro">{{item.nombre}} {{item.direccion}}</span> </mat-list-item>
+       </mat-list> 
+       <div>
+        <mat-card class="cardMapa" *ngIf="verMapa" >
+            <iframe  [src]="fuenteMapa" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+           <div style="margin-left: 20px;"><span class="texto1">Modificar Ubicación</span> <img style="margin-left: 5px;" src="assets/icons/puntero.svg"   alt="Ubicación"></div>
+           <br>
+           <div style="margin-left: 20px;"><span class="texto2">{{this.direccion}}</span></div> 
+        </mat-card>
+        <div class="form-row" *ngIf="verMapa">
+            <mat-form-field  >
+                <mat-label>Alias</mat-label>
+                <input style="width: 50%;" matInput placeholder="Alias" [(ngModel)]="unidad.alias" [ngModelOptions]="{standalone: true}" required/>
+                <button
+                *ngIf="unidad.alias"
+                mat-icon-button
+                matSuffix
+                aria-label="Clear"
+                (click)="clearAlias()"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+                
+              </mat-form-field> 
+              <mat-form-field  >
+                <mat-label>Número exterior</mat-label>
+                <input style="width: 50%;" matInput placeholder="Número exterior" [(ngModel)]="unidad.numero_exterior" [ngModelOptions]="{standalone: true}" required />
+                <button
+                *ngIf="unidad.numero_exterior"
+                mat-icon-button
+                matSuffix
+                aria-label="Clear"
+                (click)="clearExterior()"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+                
+              </mat-form-field> 
+    
+        </div>
+        <div class="form-row" *ngIf="verMapa">
+            <mat-form-field  >
+                <mat-label>Número interior</mat-label>
+                <input style="width: 50%;" matInput placeholder="Número interior" [(ngModel)]="unidad.numero_interior" [ngModelOptions]="{standalone: true}"/>
+                <button
+                *ngIf="unidad.numero_interior"
+                mat-icon-button
+                matSuffix
+                aria-label="Clear"
+                (click)="clearInterior()"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+                
+              </mat-form-field> 
+              <mat-form-field  >
+                <mat-label>Consultorio</mat-label>
+                <input style="width: 50%;" matInput placeholder="Consultorio" [(ngModel)]="unidad.consultorio" [ngModelOptions]="{standalone: true}"/>
+                <button
+                *ngIf="unidad.consultorio"
+                mat-icon-button
+                matSuffix
+                aria-label="Clear"
+                (click)="clearConsultorio()"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+                
+              </mat-form-field> 
+        </div>     
+       </div>
+       
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close class="cancelar-button">Cancelar</button>
+  <button type="submit" [disabled]="(unidad.alias=='' || unidad.numero_exterior =='')"  mat-button class="aceptar-button" >Aceptar</button>
+</mat-dialog-actions>
+</form>

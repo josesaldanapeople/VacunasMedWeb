@@ -1,0 +1,63 @@
+.vacunas-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #fff;
+    //border: 1px solid #e0e0e0;
+    //border-radius: 8px;
+  }
+  
+  .title-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .icon {
+    font-size: 36px;
+  }
+  
+  .title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4a4a4a;
+  }
+  
+  .add-button {
+    padding-left: 16px;
+    text-transform: none; /* Evita que el texto del botón esté en mayúsculas */
+    display: flex;
+    align-items: center !important;
+    gap: 8px;
+    background-color: #971c4e;
+    color: white;
+    border-radius: 20px;
+    border: #971c4e;
+    width:155px;
+  }
+
+  .action-button {
+    background-color: #126343;
+    color: white;
+    border-radius: 20px;
+    text-transform: none;
+    border: #126343;
+    width:100px;
+    //font-weight: bold;
+  }
+  .texto_noaplica{
+    font-size: 1.3rem;
+    color: #e26473;
+  }
+  .texto_aplica{
+    font-size: 1.3rem;
+    color: green;
+  }
+  .subtexto{
+    font-size: 1.0rem;
+  }
+  .titulo{
+    font-size: 1.3rem;
+    font-weight: bold;
+  }

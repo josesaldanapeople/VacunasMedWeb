@@ -1,0 +1,356 @@
+.dot{
+  margin-top: 10px;
+  //margin-left: -10px;
+}
+
+.vaccination-list {
+  padding: 16px;
+}
+
+
+.vaccination-section{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: 15px;
+}
+
+.vaccination-section-icon{
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.vaccination-section-title{
+  font-weight: 500 !important;
+  font-size: 17px;
+}
+
+.vaccination-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -14px;
+  padding: 8px;
+  //border-bottom: 1px solid #e0e0e0;
+}
+
+.vaccine-info-verde {
+  display: flex;
+  //align-items: center;
+  margin-left:30px;
+  border-left: 1px dashed green;
+}
+
+.vaccine-info-verde-2 {
+  display: flex;
+  //align-items: center;
+  margin-left:30px;
+
+}
+
+.vaccine-info-amarillo {
+  display: flex;
+  //align-items: center;
+  margin-left:30px;
+  border-left: 1px dashed yellow;
+}
+
+.vaccine-info-rojo {
+  display: flex;
+  //align-items: center;
+  margin-left:30px;
+  border-left: 1px dashed red;
+}
+
+.icon {
+  margin-top: 25px;
+  font-size: 24px;
+  margin-right: 8px;
+  margin-left: -11px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  line-height: 16.8px;
+  margin-left: 20px;
+}
+
+.details h4{
+  font-weight: 500 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.details p{
+  margin-top: -5px;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: #333;
+}
+
+.valor1{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.valor2{
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.datos-vacunas{
+  border-top: 1px solid #cfcfcf;
+  //margin-left: 56px;
+  padding-top: 10px;
+}
+
+
+.header-vacuna{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: -20px;
+}
+
+.header-vacuna-izquierdo{
+  display: flex;
+  flex-direction: column !important;
+  justify-content: start;
+  line-height: 1.7;
+  padding: -2px;
+}
+
+.header-vacuna-derecho{
+  display: flex;
+  flex-direction: column !important;
+  justify-content: end;
+}
+
+
+
+
+.dato-vacuna{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  //margin-left: 60px;
+}
+
+
+.izquierdo{
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.izquierdo span{
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.derecho{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+}
+
+.derecho span{
+  font-weight: 300;
+  font-size: 11px;
+}
+
+.icono_boton{
+  cursor: pointer;
+}
+
+
+.datos-clinica{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  //margin-left: 56px;
+  gap: 10px;
+}
+
+.datos-clinica-lugar{
+  display: flex;
+  flex-direction: column !important;
+}
+
+.datos-clinica-fecha{
+  border-right: 1px;
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background-color: rgba(51, 48, 48, 0.3); /* Color del divisor */
+  margin: 0 10px;
+}
+
+
+.datos-clinica-icon{
+  width: 24px;
+  height: 24px;
+  margin: 10px;
+}
+
+.datos-clinica-fecha{
+  border-left: 2px solid rgba(51, 48, 48, 0.3); /* Color del divisor */;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column !important;
+  padding-left: 10px;
+}
+
+.datos-clinica-hora{
+  margin-left: 10px;
+  border-left: 2px solid rgba(51, 48, 48, 0.3); /* Color del divisor */;
+  padding-left: 10px;
+}
+
+
+
+
+.clinica{
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 0px;
+}
+
+.lugar-titulo{
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 0px;
+}
+
+.lugar{
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+/* .center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 100%;
+} */
+
+/* Estilo para los divs individuales */
+.box {
+  background-color: #f3f3f3;   /* Color de fondo para distinguir */
+  padding: 10px 20px;          /* Espaciado interno */
+  border: 1px solid #ccc;      /* Borde opcional */
+  border-radius: 4px;          /* Bordes redondeados */
+  text-align: center;          /* Centrar el contenido del texto */
+}
+
+
+.valor{
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: -5px;
+}
+
+.titulo-valor{
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 12px;
+  margin-bottom: -5px;
+}
+
+
+.info-vacuna{
+  margin-top: 10px;
+  //margin-left: 56px;
+}
+
+.info-vacuna .row{
+  padding-bottom: 15px;
+}
+
+.contain-rojo{
+  width: 95% !important;
+  margin-left:30px;
+  border-left: 1px dashed  #D0021B;
+  margin-bottom: -20px;
+}
+
+.contain-amarillo{
+  width: 95% !important;
+  margin-left:30px;
+  border-left: 1px dashed #FFC409;
+  margin-bottom: -20px;
+}
+
+.contain-verde{
+  width: 95% !important;
+  margin-left:30px;
+  border-left: 1px dashed #126343;
+  margin-bottom: -20px;
+}
+
+.contain{
+  width: 95% !important;
+  margin-left:30px;
+  border-left: 1px dashed transparent;
+  margin-bottom: -20px;
+}
+
+
+.verde{
+  color: #126343;
+}
+
+.rojo{
+  color: #D0021B;
+}
+
+.amarillo{
+  color: #FFC409
+}
+
+
+.scrollable-container {
+  height: 700px; /* Altura fija */
+  overflow-y: scroll; /* Habilitar scroll vertical */
+  scrollbar-width: none; /* Ocultar barra de desplazamiento en Firefox */
+  -ms-overflow-style: none; /* Ocultar barra de desplazamiento en IE y Edge */
+}
+
+.scrollable-container::-webkit-scrollbar {
+  display: none; /* Ocultar barra de desplazamiento en Chrome, Safari y Opera */
+}
+
+
+.aplicacion{
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right !important;
+}
+
+.valor-aplicacion{
+  font-size: 12px;
+  font-weight: 400;
+  text-align: right !important;
+}

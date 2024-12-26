@@ -1,0 +1,82 @@
+@import '../../../styles.scss';
+
+
+.titulo{
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.pantallas{
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(238, 233, 233);
+  padding: 40px;
+
+}
+
+.scrollable-container {
+  height: 700px; /* Altura fija */
+  overflow-y: scroll; /* Habilitar scroll vertical */
+  scrollbar-width: none; /* Ocultar barra de desplazamiento en Firefox */
+  -ms-overflow-style: none; /* Ocultar barra de desplazamiento en IE y Edge */
+}
+
+.scrollable-container::-webkit-scrollbar {
+  display: none; /* Ocultar barra de desplazamiento en Chrome, Safari y Opera */
+}
+
+.left-column {
+  flex: 2; /* Toma más espacio que la columna derecha */
+  background-color: #fff; /* Opcional: Para distinguir */
+  border-radius: 10px;
+  padding: 30px;
+
+}
+
+.right-column {
+  flex: 1; /* Menor espacio que la columna izquierda */
+  background-color: #fff; /* Opcional: Para distinguir */
+  border-radius: 10px;
+  padding: 10px;
+
+}
+
+
+.custom-tab-group .mat-tab-body-wrapper {
+  overflow: scroll; /* Permitir el scroll */
+}
+
+.custom-tab-group .mat-tab-body-wrapper::-webkit-scrollbar {
+  display: none !important; /* Oculta la barra de scroll */
+}
+
+.custom-tab-group .mat-tab-body-wrapper {
+  scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
+}
+
+
+
+
+.tab-icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.tab-icon-selected{
+  background-color: $vino;
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+
+}
+
+/* Icono cuando el tab está seleccionado */
+/* .mat-tab-label-active .tab-icon {
+  fill: red;
+  border-radius: 15px;
+  background-color: $vino !important;
+
+}
+ */

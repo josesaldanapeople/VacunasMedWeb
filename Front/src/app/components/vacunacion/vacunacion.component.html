@@ -1,0 +1,89 @@
+
+<div >
+    <h3>Vacunación</h3>
+    <p>Para comenzar la vacunación ingresa la CURP del paciente o escanea su código QR.</p>
+   <div class="curp-container">
+    <!-- <mat-form-field  class="full-width">
+        <mat-label>CURP del paciente</mat-label>
+        <input matInput placeholder="Ingresa la CURP" />
+      </mat-form-field> -->
+
+      <mat-form-field class="curp-field">
+        <mat-label>CURP del paciente</mat-label>
+        <input matInput [(ngModel)]="curp" placeholder="Ingrese la CURP" [disabled]="idcentro===-1" />
+      </mat-form-field>
+    
+      <!-- Botón de búsqueda -->
+      <button mat-raised-button style="width: 200px;" class="buscar-button" *ngIf="!nuevaBusqueda" (click)="buscarCurp()" [disabled]="idcentro===-1">
+        Buscar CURP
+        <mat-icon>search</mat-icon>
+      </button>
+      <button mat-raised-button style="width: 200px;" class="buscar-button" *ngIf="nuevaBusqueda" (click)="nuevaConsulta()">
+        Nueva Búsqueda
+        <mat-icon>search</mat-icon>
+      </button>
+   </div>
+   <div class="div_paciente" *ngIf="nuevaBusqueda">
+    <table style="width: 100%;">
+      <tr>
+        <td rowspan="2">
+          <img style="margin: 10px;" src="assets/icons/paciente.svg"   alt="paciente">
+        </td><td><span class="contenido">{{paciente.nombre}}</span></td>
+      </tr>
+      <tr><td>
+         <table style="width: 100%;">
+          <tr>
+            <td><span class="contenido">{{paciente.curp}}</span></td>
+            <td><span class="contenido">{{paciente.fechanacimiento}}</span></td>
+            <td><span class="contenido">{{paciente.genero}}</span></td>
+            <td><span class="contenido">{{paciente.estado}}</span></td>
+            <td>
+              <span class="contenido">{{paciente.edad}}</span>
+            </td>
+            
+          </tr>
+          <tr><td><span class="titulo">curp</span></td>
+            <td><span class="titulo">Fecha de nacimiento</span></td>
+            <td><span class="titulo">Genero</span></td>
+            <td><span class="titulo">Estado</span></td><td><span class="titulo">edad</span></td></tr>
+         </table>
+      </td></tr>
+    </table>
+   </div>
+   <mat-tab-group class="custom-tab-group" (selectedIndexChange)="changeIndex($event)" *ngIf="nuevaBusqueda">
+    <mat-tab class="scrollable-container">
+      <ng-template mat-tab-label >
+        <div [ngClass]="indexSeleccionado == 0 ? 'tab-icon-selected':''" style="margin: 5px;">
+        <img [src]="indexSeleccionado == 0 ? 'assets/icons/jeringa_blanca.svg' : 'assets/icons/jeringa_vino.svg'" width="18px" height="25px" style="margin: 2px;"  alt="Home Icon">
+      </div>
+        Esquema básico
+      </ng-template>
+      <diV>
+        <app-esquema-basico></app-esquema-basico>
+      </diV>
+    </mat-tab>
+    <mat-tab >
+      <ng-template mat-tab-label >
+        <div [ngClass]="indexSeleccionado == 1 ? 'tab-icon-selected':''"  style="margin: 5px;">
+        <img [src]="indexSeleccionado == 1 ? 'assets/icons/escudo_blanco.svg' : 'assets/icons/escudo_vino.svg'"  width="25px" height="25px" style="margin: 2px;" alt="Help Icon">
+        </div>
+        Siguientes
+      </ng-template>
+
+      <div>
+        <app-siguientes-vacunas (dataEmitter)="getVacuna($event)"></app-siguientes-vacunas>
+      </div>
+
+    </mat-tab>
+    <mat-tab >
+      <ng-template mat-tab-label >
+        <div [ngClass]="indexSeleccionado == 2 ? 'tab-icon-selected':''"  style="margin: 5px;">
+        <img [src]="indexSeleccionado == 2 ? 'assets/icons/virus_blanco.svg' : 'assets/icons/virus.svg'" width="25px" height="25px"  style="margin: 2px;" alt="Settings Icon">
+      </div>
+        Otras vacunas
+      </ng-template>
+      <app-otras-vacunas></app-otras-vacunas>
+    </mat-tab>
+  </mat-tab-group>
+   
+  </div>

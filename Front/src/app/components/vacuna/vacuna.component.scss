@@ -1,0 +1,255 @@
+.background-image {
+    background-image: url('/assets/images/cartilla.svg');
+    background-size: cover; /* Ajusta la imagen al tamaño del div */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    height: 150px; /* Altura del div */
+    width: 400px; /* Ancho del div */
+    border-radius: 10px; /* Esquinas redondeadas */
+    display: flex;
+      justify-content: center;
+      margin: 10px;
+  }
+
+  .fit-content {
+    height: auto; /* Permite que la celda tome solo el alto del contenido */
+    //white-space: nowrap; /* Evita saltos de línea si deseas que el texto quede en una sola línea */
+  }
+  .highlight-line {
+    border: 1px solid black; /* Borde visible */
+    padding: 16px; /* Espaciado interno */
+    margin: 16px; /* Espaciado externo */
+    position: relative; /* Asegura que el borde se ajuste al contenido */
+  }
+
+  /* Para un efecto adicional de sombra */
+  .highlight-line:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra cuando pasas el mouse */
+  }
+  .container {
+    background-image: url('/assets/images/cartilla.svg');
+    background-size: cover; /* Ajusta la imagen al tamaño del div */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    width: 90%; /* Ancho del contenedor */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 16px;
+    
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  .div_buscar{
+    
+    width: 90%; /* Ancho del contenedor */
+    height: 50px;
+    margin: 0 auto; /* Centrado horizontal */
+    //padding: 16px;
+    
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    margin-top: 10px;
+
+  }
+  .div_datos{
+    background-color: #971C4E;
+    width: 90%; /* Ancho del contenedor */
+    //height: 50%;
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 16px;
+    
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 5px;
+
+  }
+  .div_centros{
+    width: 90%; /* Ancho del contenedor */
+    //height: 50%;
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 16px;
+    
+   
+    margin-top: 5px;
+  }
+  .div_mapa{
+    background-image: url('/assets/images/mapa.svg');
+    background-size: cover; /* Ajusta la imagen al tamaño del div */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    height: 190px; /* Altura del div */
+    width: 300px; /* Ancho del div */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 16px;
+   
+
+  }
+  .div_mapa2{
+    background-image: url('/assets/images/mapa2.svg');
+    background-size: cover; /* Ajusta la imagen al tamaño del div */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    height: 700px; /* Altura del div */
+    width: 90%; /* Ancho del div */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 16px;
+   
+
+  }
+  .div_busqueda{
+    width: 90%;
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 16px;
+    height: auto;
+  }
+  .div_resultado1{
+    background-color:#ffe69c;
+    margin: 0 auto; /* Centrado horizontal */
+    width: 100%;
+    border-radius: 10px; /* Esquinas redondeadas */
+  }
+  .div_resultado2{
+   
+    margin: 0 auto; /* Centrado horizontal */
+    width: 100%;
+    margin-top: 5px;
+  }
+  .div_resultado3{
+   background-color: #f6f6f6;
+    margin: 0 auto; /* Centrado horizontal */
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  /* Divs internos */
+  .child-div {
+    display: block; /* Asegura que el div sea un bloque */
+    width: 80%; /* Ancho completo del contenedor */
+    //margin-bottom: 16px; /* Espacio entre divs */
+    padding: 8px;
+    color: black;
+    //text-align: center;
+    border-radius: 4px;
+  }
+
+  /* Eliminar margen del último div */
+  .child-div:last-child {
+    margin-bottom: 0;
+  }
+  .texto1{
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .texto2{ 
+    font-size: 1rem;
+}
+.texto3{
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+  .texto4{ 
+    font-size: 1.2rem;
+}
+.textobotton1{ 
+    font-size: .9rem;
+    color: white;
+}
+.nombre{
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.curp{
+    color: white;
+    //font-weight: bold;
+    font-size: .8rem;
+}
+.texto_verde{
+  color: #52a786;
+  //font-weight: bold;
+  font-size: .8rem;
+}
+.texto5{
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.texto5{
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.textodorado{
+  color: #bea46c;
+  font-size: 1rem;
+
+}
+.gold-button {
+    background-color: darkgoldenrod; /* Fondo dorado */
+    color: black; /* Texto en color negro */
+    font-weight: bold;
+    padding: 8px 16px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    text-transform: none; /* Evita que el texto esté en mayúsculas */
+  }
+  
+  .gold-button:hover {
+    background-color: darkgoldenrod; /* Cambio de color al pasar el ratón */
+  }
+  
+  /* Alinear el icono a la derecha */
+  .icon-right {
+    margin-left: 30px; /* Espacio entre el texto y el icono */
+  }
+
+  header{
+    position: fixed;
+    top: 0;
+     z-index: 11;
+    transition: all 250ms ease-in-out;
+  }
+
+  .search-block{
+    width: 0%;
+    right: 0;
+    @extend header;
+    background: #fff;
+    &.active{
+      width: 100%;
+    }
+    .search-control{
+      flex: 1;
+      font-size: 1rem;
+      border: 0;
+      outline: none;
+      padding-left: 10px;
+    }
+  }
+
+  .dose-badge {
+    background-color: #c7f4d6;
+    color: #4caf50;
+    border-radius: 12px;
+    padding: 4px 8px;
+    font-size: 1rem;
+    //font-size: 12px;
+    //font-weight: bold;
+  }
+  .div_resultado2 .mat-list-icon {
+    font-size: 24px;
+  }
+  .div_resultado2 mat-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .mat-list-icon {
+    font-size: 24px;
+  }
+
+  .search-field {
+    width: 100%;
+  }
+  
+  .div_buscar mat-form-field {
+    //background: #f8f9fa; /* Fondo claro */
+    border-radius: 8px; /* Bordes redondeados */
+  }  

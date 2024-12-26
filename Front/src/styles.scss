@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+$verde : #3b6858;
+$amarillo : #A57F2C;
+$vino : #611232;
+
+
+.page{
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+body{
+  font-family: 'Montserrat'
+}
+
+
+.main-container {
+  display: flex;
+  gap: 24px; /* Espaciado entre las columnas */
+  padding: 16px;
+  background-color: rgb(231, 231, 231);
+  //margin: 15px;
+}
+
+/*
+::ng-deep .mat-tab-header {
+  overflow: hidden !important;
+}
+
+::ng-deep .mat-tab-list {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+ */

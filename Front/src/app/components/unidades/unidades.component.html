@@ -1,0 +1,121 @@
+<div class="">
+
+    <div>
+
+        <mat-card class="custom-card">
+            <div class="card-content">
+              <div class="text-section">
+                <mat-card-title>Semana de vacunación</mat-card-title>
+                <mat-card-subtitle>
+                  Consulta la semana de vacunación y protégte contra virus y enfermedades
+                </mat-card-subtitle>
+                <button mat-raised-button color="primary" class="action-button">
+                  Información de la vacuna →
+                </button>
+              </div>
+              <div class="image-section">
+                <img src="assets/images/vacunas.svg" alt="Vacuna" class="vaccine-image" />
+              </div>
+            </div>
+          </mat-card>
+
+        
+    </div>
+    <div>
+        <table class="tabla_header">
+            <tr>
+                <td style="width: 80%;"><p class="titulo">Mis centros de trabajo</p></td>
+                <td>
+                    <a href="#" class="link">Editar</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+   <!--  <div>
+        <mat-tab-group class="custom-tab-group" (selectedIndexChange)="changeIndex($event)">
+            <mat-tab class="scrollable-container" *ngFor="let item of unidades; let i= index">
+                <ng-template mat-tab-label >
+                    <table>
+                        <tr>
+                            <td>
+                                <div [ngClass]="indexSeleccionado === i ? 'tab-icon-selected' : ''" style="margin: 25px;">
+                                    <img [src]="indexSeleccionado === i ? 'assets/icons/unidad_seleccionada.svg' : 'assets/icons/unidad.svg'" style="margin: 2px;width:61px;height:61px;"  alt="Home Icon">
+                                  </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{item.alias}}
+                            </td>
+                        </tr>
+                    </table>
+                  
+                
+                  
+                </ng-template>
+                <diV>
+                  prueba
+                </diV>
+              </mat-tab>
+        </mat-tab-group>    
+    </div> -->
+<div class="div2">
+    <div *ngFor="let item of unidades; let i= index" class="div_iconos" (click)="changeIndex(item.id)">
+        <table>
+            <tr><td class="grid-centered">
+                <img [src]="indexSeleccionado === item.id ? 'assets/icons/unidad_seleccionada.svg' : 'assets/icons/unidad.svg'"   alt="Home Icon">
+            </td></tr>
+            <tr><td>{{item.alias}}</td></tr>
+        </table>
+    </div>
+    <div  class="div_iconos" (click)="openModal()" >
+        <table>
+            <tr><td class="grid-centered">
+                <img src="assets/icons/agregar.svg"   alt="Agregar">
+            </td></tr>
+            <tr><td>Agregar</td></tr>
+        </table>
+    </div>
+</div>
+<mat-card class="cardUnidad" *ngIf="indexSeleccionado!=-1">
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 75%;"><span class="texto2">Nombre del centro de trabajo</span></td>
+            <td><span class="texto2">Alias</span></td>
+        </tr>
+        <tr>
+            <td style="width: 75%;"><span class="texto1">{{unidadSeleccionada.nombre}}</span></td>
+            <td><span class="texto1">{{unidadSeleccionada.alias}}</span></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td><span class="texto2">Dirección</span></td>
+        </tr>
+        <tr>
+            <td><span class="texto3">{{unidadSeleccionada.direccion}}</span></td>
+        </tr>
+    </table>
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 50%;"><span class="texto2">Horario laboral</span></td>
+            <td><span class="texto2">Puesto</span></td>
+        </tr>
+        <tr>
+            <td style="width: 50;"><span class="texto3">{{unidadSeleccionada.horario}}</span></td>
+            <td><span class="texto3">{{unidadSeleccionada.puesto}}</span></td>
+        </tr>
+    </table>
+</mat-card>
+<mat-card class="info-card" *ngIf="indexSeleccionado==-1">
+    <div class="info-content">
+      <div class="icon-container">
+        <img src="assets/icons/informacion.svg"   alt="Agregar">
+      </div>
+      <div class="info-text">
+        Para comenzar, primero selecciona un centro de trabajo
+      </div>
+    </div>
+  </mat-card>
+</div>
+

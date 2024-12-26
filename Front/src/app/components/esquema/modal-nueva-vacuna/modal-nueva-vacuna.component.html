@@ -1,0 +1,106 @@
+
+<mat-dialog-content>
+    <form #vacunaForm="ngForm" (ngSubmit)="registrar(vacunaForm)">
+    <div class="container">
+
+
+        <div>
+            <p class="titulo">Datos de la vacuna</p>
+        </div>
+        <div class="form-row" >
+            <mat-form-field  style="width: 50%;" >
+                <mat-label>Nombre de la vacuna</mat-label>
+                <input name="nombre" [disabled]="data.nombre !=''" style="width: 50%;" matInput placeholder="Nombre de la vacuna" [(ngModel)]="nombre"  required/>
+                <button
+                *ngIf="data.nombre ==''"
+                mat-icon-button
+                matSuffix
+                aria-label="Clear"
+                (click)="buscarVacuna()"
+              >
+              <img 
+              class="icono_boton"
+              src="assets/icons/lupa.svg"
+            /> 
+              </button>
+                
+              </mat-form-field> 
+              <mat-form-field style="width: 50%;"  >
+                <mat-label>Vía de administración</mat-label>
+                <input name="administracion" [disabled]="data.nombre !=''" style="width: 50%;" matInput placeholder="Vía de administración" [(ngModel)]="administracion"  required />
+                
+                
+              </mat-form-field> 
+        
+        </div>
+        <div class="form-row" >
+            <mat-form-field style="width: 50%;" >
+                <mat-label>Dosis administrada</mat-label>
+                <input name="dosis" [disabled]="data.nombre !=''" style="width: 50%;" matInput placeholder="Dosis administrada" [(ngModel)]="dosis"  required/>
+                        
+              </mat-form-field> 
+              <mat-form-field  style="width: 50%;"  >
+                <mat-label>No de aplicación</mat-label>
+                <input name="aplicacion" [disabled]="data.nombre !=''" style="width: 50%;" matInput placeholder="No.de aplicación" [(ngModel)]="aplicacion"  required />
+                
+                
+              </mat-form-field> 
+        
+        </div>
+        <div class="form-row"  >
+            <mat-form-field  style="width: 50%;">
+                <mat-label>Fabricante</mat-label>
+                <input name="fabricante" style="width: 50%;" matInput placeholder="Fabricante" [(ngModel)]="fabricante"  required/>
+                <button
+                *ngIf="data.nombre ==''"
+                mat-icon-button
+                matSuffix
+                aria-label="Clear"
+                (click)="buscarVacuna()"
+              >
+              <img 
+              class="icono_boton"
+              src="assets/icons/lupa.svg"
+            /> 
+              </button>
+                
+              </mat-form-field> 
+              <mat-form-field  style="width: 50%;" >
+                <mat-label>Lote</mat-label>
+                <input name="lote" style="width: 50%;" matInput placeholder="Lote" [(ngModel)]="lote"  required />
+                
+                
+              </mat-form-field> 
+        
+        </div>
+        <div class="form-row" >
+            <mat-form-field style="width: 50%;" >
+                <mat-label>Fecha de caducidad</mat-label>
+                <input name="caducidad" style="width: 50%;" matInput placeholder="Fechade caducidad" [(ngModel)]="caducidad"  required/>
+                        
+              </mat-form-field> 
+              <mat-form-field  style="width: 50%;"  >
+                <mat-label>Siguiente aplicación</mat-label>
+                <input name="siguiente" style="width: 50%;" matInput placeholder="Siguiente aplicación" [(ngModel)]="siguiente"  required />
+                
+                
+              </mat-form-field> 
+        
+        </div>
+        <div>
+            <img 
+            class="icono_boton"
+            src="assets/icons/nota.svg"
+          /> 
+          <span>No olvides revisar que el paciente no tenga algún sintoma o contraindicación para la aplicación</span>
+        </div>
+        <div class="div_botones">
+            <button mat-button class="limpiar-button">Limpiar</button>
+            <button type="button" mat-button (click)="cerrarModal()" class="cancelar-button">Cancelar</button>
+            <button type="submit" [disabled]="vacunaForm.invalid"  mat-button class="aceptar-button" >Aceptar</button>
+        </div>
+        </div>
+    </form>
+    
+</mat-dialog-content>
+

@@ -1,0 +1,47 @@
+
+
+<div class="main-container">
+
+  <!-- Columna Izquierda -->
+  <div class="left-column scrollable-container ">
+
+   
+    <app-vacunacion></app-vacunacion>
+    
+  
+
+
+
+
+    <!-- <mat-tab-group (selectedIndexChange)="changeIndex($event)" >
+
+    </mat-tab-group> -->
+
+  </div>
+
+  <!-- Columna Derecha -->
+  <div class="right-column scrollable-container ">
+    <!-- <app-vacuna></app-vacuna> -->
+     <app-unidades (dataEmitter)="seleccionCentro($event)"></app-unidades>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="foo" >
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Ejemplo de ventana modal</h4>
+      </div>
+      <div class="modal-body">
+        <p>Ejemplo de texto interno.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

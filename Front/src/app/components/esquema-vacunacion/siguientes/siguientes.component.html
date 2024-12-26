@@ -1,0 +1,34 @@
+<div class="vaccination-list">
+  <div class="vaccination-section">
+    <div class="vaccination-section-icon">
+      <img class="dot" src="assets/icons/siguientes.svg" />
+    </div>
+    <div class="vaccination-section-title">
+      <span>Siguientes vacunas y refuerzos</span>
+    </div>
+  </div>
+  <div *ngFor="let vaccine of vaccines">
+    <div class="contain-{{vaccine.color}}">
+      <div class="icon">
+        <img class="dot" src="assets/icons/dot_{{ vaccine.color }}.svg" />
+      </div>
+
+      <div class="details">
+        <div class="header-vacuna">
+          <div class="header-vacuna-izquierdo">
+            <span class="valor1">{{ vaccine.name }}</span>
+            <span class="valor2">{{ vaccine.description }}</span>
+          </div>
+          <div class="header-vacuna-derecho">
+            <span class="aplicacion {{ vaccine.color }}">{{
+              vaccine.nextDate
+            }}</span>
+            <span class="valor-aplicacion">{{ vaccine.nextDate2 }}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
