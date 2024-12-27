@@ -6,9 +6,9 @@
     </div>
   
     <!-- Botón de nueva vacuna -->
-    <button mat-raised-button  class="add-button">
+    <button mat-raised-button (click)="openModal(vacuna_vacia,2)"   class="add-button">
       Nueva vacuna
-      <img style="margin: 10px;" src="assets/icons/add.svg" (click)="openModal()"   alt="agregar vacuna">
+      <img style="margin: 10px;" src="assets/icons/add.svg"   alt="agregar vacuna">
     </button>
 
 
@@ -78,10 +78,11 @@
 
             </mat-expansion-panel>
         </mat-accordion>   
-        <button mat-raised-button color="primary" (click)="openModal(item)" class="action-button">
+        <button mat-raised-button color="primary" (click)="openModal(item,1)" class="action-button">
             Aplicar siguiente dosis →
           </button>
     </mat-card-content>
       </mat-card>
       
   </div>
+

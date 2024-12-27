@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef } from '@angular/material/dialog';
-import { Vacuna } from '../../../modelos/vacuna';
+import { TipoVacuna, Vacuna } from '../../../modelos/vacuna';
 import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -40,21 +40,72 @@ export class ModalNuevaVacunaComponent {
   siguiente:string='';
   verBuscadorFabricante:boolean=false;
   searchFabricante:string=''
+  verBuscadorVacunas:boolean=false;
+  seleccionado:boolean=false
+  searchVacuna:string=''
+  tipovacuna:TipoVacuna[]=[{
+    nombre: 'ANTIHEPATITIS B'
+  },
+  {
+    nombre: 'CONTRA TD'
+  },{
+    nombre: 'INFLUENZA ESTACIONAL'
+  },{
+    nombre: 'FIEBRE AMARILLA'
+  }]
+  tipovacunaFiltered:TipoVacuna[]=[]
   fabricantes:Fabricante[]=[{
     nombre: 'Biofarma'
   },{nombre: 'Aztra-Zeneca'},{nombre: 'Novartis'},{nombre: 'Pfizer'}]
+  filteredFabricantes:Fabricante[]=[]
 
+  vacunasSugeridas:Vacuna[]=[{
+    nombre: 'VACUNA CONTRA TD',
+    descripcion: '',
+    aplicada: false,
+    causa_perdida: '',
+    fecha: '',
+    hora: '',
+    dosis: [{
+      id: 0,
+      numDosis: '2a Dosis',
+      administracion: 'Intramuscular',
+      fecha_caducidad: '01/12/2027',
+      dosis_admin: '1.5 mg',
+      fabricante: 'Biofarma',
+      lote: 'ABC-0000001',
+      siguiente: ''
+    }]
+  },
+  {
+    nombre: 'VACUNA TDAP',
+    descripcion: '',
+    aplicada: false,
+    causa_perdida: '',
+    fecha: '',
+    hora: '',
+    dosis: [{
+      id: 0,
+      numDosis: '1a Dosis',
+      administracion: 'Intramuscular',
+      fecha_caducidad: '01/12/2027',
+      dosis_admin: '12 gotas',
+      fabricante: 'Biofarma',
+      lote: 'ABC-0002145',
+      siguiente: ''
+    }]
+  }]
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Vacuna,private dialogRef: MatDialogRef<ModalNuevaVacunaComponent>) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private dialogRef: MatDialogRef<ModalNuevaVacunaComponent>) {
     console.log(this.data)
    
-    if(this.data.nombre !='')
+    if(this.data.opc ==1)
     {
-      this.nombre=this.data.nombre
-      this.administracion= this.data.dosis[0].administracion
-      this.dosis =this.data.dosis[0].dosis_admin
+      this.nombre=this.data.sigVac.nombre
+      this.administracion= this.data.sigVac.dosis[0].administracion
+      this.dosis =this.data.sigVac.dosis[0].dosis_admin
       
-      this.aplicacion=this.formatoaplicacion(this.data.dosis.length+1)
+      this.aplicacion=this.formatoaplicacion(this.data.sigVac.dosis.length+1)
 
     }
    }
@@ -75,7 +126,7 @@ export class ModalNuevaVacunaComponent {
     return dosis;
    }
    buscarVacuna(){
-
+    this.verBuscadorVacunas=true;
    }
    cerrarModal(){
     this.dialogRef.close({vacuna:this.nueva_vacuna});
@@ -125,6 +176,68 @@ export class ModalNuevaVacunaComponent {
   buscarFabricante()
   {
     this.verBuscadorFabricante=true;
+  }
+
+  filterFabricante()
+  {
+    const query = this.searchFabricante ? this.searchFabricante.trim().toLowerCase() : '';
+    
+    if (!query) {
+      this.filteredFabricantes = [];
+      return;
+    }
+  
+    this.filteredFabricantes = this.fabricantes.filter(item => 
+      item.nombre && item.nombre.toLowerCase().includes(query)
+    );
+
+ 
+  }
+  filterVacuna()
+  {
+    const query = this.searchVacuna ? this.searchVacuna.trim().toLowerCase() : '';
+    
+    if (!query) {
+      this.tipovacunaFiltered = [];
+      return;
+    }
+  
+    this.tipovacunaFiltered = this.tipovacuna.filter(item => 
+      item.nombre && item.nombre.toLowerCase().includes(query)
+    );
+
+
+ 
+  }
+  seleccionFabricante(fabricante:string)
+  {
+    this.verBuscadorFabricante=false;
+    this.fabricante=fabricante;
+  }
+  seleccionTipo(nombre:string)
+  {
+    this.seleccionado=true;
+
+  }
+  limpiar(){
+    if(this.data.opc==2){
+      this.nombre=''
+      this.administracion= ''
+      this.dosis =''
+    }
+    this.fabricante=''
+    this.lote=''
+    this.siguiente=''
+  }
+  seleccionarVacuna(item:Vacuna){
+    this.nombre=item.nombre;
+    this.verBuscadorVacunas=false;
+    this.administracion= item.dosis[0].administracion
+    this.dosis = item.dosis[0].dosis_admin
+    this.fabricante= item.dosis[0].fabricante
+    this.aplicacion =item.dosis[0].numDosis 
+    this.lote= item.dosis[0].lote
+    this.caducidad = item.dosis[0].fecha_caducidad
   }
 
 }

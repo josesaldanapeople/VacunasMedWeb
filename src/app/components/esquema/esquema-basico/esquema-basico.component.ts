@@ -1,9 +1,12 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Output, signal } from '@angular/core';
 import { MatCard, MatCardContent } from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatIcon } from '@angular/material/icon';
 import { Vacuna } from '../../../modelos/vacuna';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalNuevaVacunaComponent } from '../modal-nueva-vacuna/modal-nueva-vacuna.component';
+import { ModalMensajeComponent } from '../../modal-mensaje/modal-mensaje.component';
 
 @Component({
   selector: 'app-esquema-basico',
@@ -14,6 +17,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './esquema-basico.component.scss'
 })
 export class EsquemaBasicoComponent {
+  @Output() dataEmitter = new EventEmitter<Vacuna>();
   vacunas_aplicadas:Vacuna[]=[{
     nombre: 'Influenza',
     aplicada: false,
@@ -119,7 +123,16 @@ export class EsquemaBasicoComponent {
   step = signal(-1);
   outerArray = [/* tus datos para el ngFor externo */];
   innerArray = [/* tus datos para el ngFor interno */];
-  constructor(private cdr: ChangeDetectorRef){}
+  vacuna_vacia:Vacuna={
+    nombre: '',
+    descripcion: '',
+    aplicada: false,
+    causa_perdida: '',
+    fecha: '',
+    hora: '',
+    dosis: []
+  }
+  constructor(private cdr: ChangeDetectorRef,public dialog: MatDialog){}
   generateUniqueNumber(outerIndex: number, innerIndex: number): number {
     // Genera un número único combinando los índices de ambos ngFor
     return outerIndex * 1000 + innerIndex;
@@ -143,6 +156,35 @@ export class EsquemaBasicoComponent {
       this.vacunas_aplicadas.push(nuevaVacuna)
     }
     this.cdr.detectChanges(); 
+  }
+
+  openModal(vacuna:Vacuna=this.vacuna_vacia, opcion:number): void {
+    const dialogRef = this.dialog.open(ModalNuevaVacunaComponent, {
+      width: '650px', // Ajusta el tamaño del modal
+      data:  { sigVac:vacuna,
+               opc:opcion
+      } , // Datos opcionales que puedes pasar al modal
+    });
+
+    // Opcional: manejar la acción al cerrar el modal
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal fue cerrado');
+       this.dataEmitter.emit(result.vacuna);
+        
+       const dialogRef2 = this.dialog.open(ModalMensajeComponent, {
+        width: '500px', // Ajusta el tamaño del modal
+        data:  { opcion:'exito',
+                 titulo:'¡Vacuna registrada!',
+                 subtitulo:'La vacuna se agregó a la cartilla del paciente'
+        } , // Datos opcionales que puedes pasar al modal
+      });
+
+      setTimeout(() => {
+        dialogRef2.close();
+        // Aquí puedes colocar cualquier otra lógica que desees ejecutar.
+      }, 4000);
+      
+    });
   }
 
 }

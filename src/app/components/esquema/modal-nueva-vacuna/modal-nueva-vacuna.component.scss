@@ -46,3 +46,38 @@ mat-form-field {
   .aceptar-button:hover {
     background-color: #971c4e; /* Color de fondo en hover */
   }
+  .div_busqueda{
+    justify-content: center !important;
+  }
+  .div1{
+    background-color: #F1F3F3;;
+    border-radius: 10px;
+    padding-left: 5px;
+  }
+  .texto1{
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  .dosis{
+    //width: 50px;
+    background-color: aqua;
+    border-radius: 10px;
+  }
+  .action-button {
+    background-color: white !important;
+    color: rgb(9, 93, 219) !important;
+    border-radius: 20px;
+    text-transform: none;
+    border: white;
+    //font-weight: bold;
+  }
+  .dorado{
+    color:#a87e0c;
+    font-size: .9rem;
+    
+  }
+  .card-action {
+    margin-top: 16px;
+    text-align: right;
+    width: 100%;
+  }

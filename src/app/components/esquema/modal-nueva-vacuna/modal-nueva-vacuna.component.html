@@ -1,7 +1,7 @@
 
 <mat-dialog-content>
     
-    <div class="container" *ngIf="!verBuscadorFabricante ">
+    <div class="container" *ngIf="!verBuscadorFabricante && !verBuscadorVacunas">
       <form #vacunaForm="ngForm" (ngSubmit)="registrar(vacunaForm)">
 
       
@@ -13,7 +13,7 @@
                 <mat-label>Nombre de la vacuna</mat-label>
                 <input name="nombre" [disabled]="data.nombre !=''" style="width: 50%;" matInput placeholder="Nombre de la vacuna" [(ngModel)]="nombre"  required/>
                 <button
-                *ngIf="data.nombre ==''"
+                *ngIf="data.opc ==2"
                 mat-icon-button
                 matSuffix
                 aria-label="Clear"
@@ -42,7 +42,7 @@
               </mat-form-field> 
               <mat-form-field  style="width: 50%;"  >
                 <mat-label>No de aplicación</mat-label>
-                <input name="aplicacion" [disabled]="data.nombre !=''" style="width: 50%;" matInput placeholder="No.de aplicación" [(ngModel)]="aplicacion"  required />
+                <input name="aplicacion" [disabled]="data.opc !=2" style="width: 50%;" matInput placeholder="No.de aplicación" [(ngModel)]="aplicacion"  required />
                 
                 
               </mat-form-field> 
@@ -96,7 +96,7 @@
           <span>No olvides revisar que el paciente no tenga algún sintoma o contraindicación para la aplicación</span>
         </div>
         <div class="div_botones">
-            <button mat-button class="limpiar-button">Limpiar</button>
+            <button mat-button (click)="limpiar()" class="limpiar-button">Limpiar</button>
             <button type="button" mat-button (click)="cerrarModal()" class="cancelar-button">Cancelar</button>
             <button type="submit" [disabled]="vacunaForm.invalid"  mat-button class="aceptar-button" >Aceptar</button>
         </div>
@@ -105,10 +105,88 @@
     </div>
     <div *ngIf="verBuscadorFabricante">
       <mat-form-field appearance="fill" style="width: 300px;">
-        <mat-label><mat-icon>search</mat-icon> Buscar vacuna</mat-label>
-        <input matInput placeholder="Buscar vacuna" [(ngModel)]="searchFabricante">
+        <mat-label><mat-icon>search</mat-icon> Buscar fabricante</mat-label>
+        <input matInput placeholder="Buscar fabricante" [(ngModel)]="searchFabricante" (input)="filterFabricante()">
         
       </mat-form-field>
+      <mat-list >
+        <mat-list-item (click)="seleccionFabricante(item.nombre)" *ngFor="let item of filteredFabricantes"><span >{{item.nombre}} </span> </mat-list-item>
+       </mat-list> 
+    </div>
+    <div *ngIf="verBuscadorVacunas">
+      <mat-form-field appearance="fill" style="width: 300px;">
+        <mat-label><mat-icon>search</mat-icon> Buscar vacuna</mat-label>
+        <input matInput placeholder="Buscar vacuna" [(ngModel)]="searchVacuna" (input)="filterVacuna()">
+        
+      </mat-form-field>
+       <div class="div_busqueda" *ngIf="tipovacunaFiltered.length === 0">
+        <img 
+            class="icono_boton"
+            src="assets/icons/busqueda_vacuna.svg"
+          />
+          <p class="titulo">Búsqueda de vacunas</p>
+          <br>
+          <p >Busca una vacuna para su aplicación</p>
+       </div>
+
+       <mat-list *ngIf="!seleccionado" >
+        <mat-list-item (click)="seleccionTipo(item.nombre)" *ngFor="let item of tipovacunaFiltered"><span >{{item.nombre}} </span> </mat-list-item>
+       </mat-list> 
+       <div *ngIf="seleccionado">
+        <span>Resultado de búsqueda</span>
+         <div class="div1">
+          <p class="texto1">Vacunas sugeridas</p>
+          <p>Vacunas sugeridas considerando su rango de edad y esquema de vacunación</p>
+         </div>
+       
+         <div *ngFor="let item of vacunasSugeridas">
+          <table  style="width: 100%;">
+            <tr>
+              <td> <img 
+                class="icono_boton"
+                src="assets/icons/jeringa_verde.svg"
+              /></td>
+              <td>
+                <table style="width: 100%;">
+                  <tr>
+                    <td>
+                       <table style=" width:100%">
+                        <tr>
+                          <td style="width: 70%;"><span>{{item.nombre}}</span></td>
+                          <td><div class="dosis"><span style="margin-left: 10px;">  Dosis {{item.dosis[0].dosis_admin}}  </span></div> </td>
+                        </tr>
+                       </table>
+
+                      </td>
+                  </tr>
+                  <tr><td>Via de administración {{item.dosis[0].administracion}}</td></tr>
+                  <tr><td><span>{{item.dosis[0].numDosis}}</span></td></tr>
+                </table>
+              </td>
+            </tr>
+           </table>
+            <div class="div1" style="width: 100%;">
+               <table style="width: 100%;">
+                <tr>
+                  <td><span>{{item.dosis[0].fabricante}}</span></td>
+                  <td><span>{{item.dosis[0].lote}}</span></td>
+                  <td><span>{{item.dosis[0].fecha_caducidad}}</span></td>
+                </tr>
+                <tr>
+                  <td><span class="dorado">Fabricante</span></td>
+                  <td><span class="dorado">Lote</span></td>
+                  <td><span class="dorado">Caducidad</span></td>
+                </tr>
+               </table>
+            </div>
+            <div class="card-action">
+              <button (click)="seleccionarVacuna(item)"   class="action-button">
+                Seleccionar →
+              </button>
+            </div>
+         </div>
+         
+       </div>
     </div>
     
     

@@ -20,5 +20,8 @@ export class Vacuna{
     dosis!:Dosis[]
 
 }
+export class TipoVacuna{
+    nombre!:string;
+}
 
 
